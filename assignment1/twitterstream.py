@@ -1,12 +1,16 @@
 import oauth2 as oauth
 import urllib2 as urllib
+import ConfigParser
+
+config = ConfigParser.ConfigParser()
+config.readfp(open('twitterstream.cfg'))
 
 # See assignment1.html instructions or README for how to get these credentials
 
-api_key = "<Enter api key>"
-api_secret = "<Enter api secret>"
-access_token_key = "<Enter your access token key here>"
-access_token_secret = "<Enter your access token secret here>"
+api_key = config.get('twitter', 'api_key')
+api_secret = config.get('twitter', 'api_secret')
+access_token_key = config.get('twitter', 'access_token_key')
+access_token_secret = config.get('twitter', 'access_token_secret')
 
 _debug = 0
 
